@@ -1,6 +1,43 @@
 version: "3.0"
 
+entities:
+  - location
+  - temperature
+  - humidity
+
+slots:
+  location:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: location
+    influence_conversation: false
+  temperature:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: temperature
+    influence_conversation: false
+  humidity:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: humidity
+    influence_conversation: false
+
+#forms:
+#  weather_form:
+#    required_slots:
+#      - location
+
+forms:
+  weather_form:
+    location:
+      - type: "from_text"
+
 intents:
+  - ask_weather
+  - give_location
   - greet
   - goodbye
   - affirm
@@ -8,26 +45,39 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - chitchat
 
 responses:
+  #utter_ask_weather_form_location:
+  # - text:
+
+  utter_ask_location:
+    - text: For which location would you like to know the weather ?
+
+  utter_give_weather:
+    - text: The temperature in {location} is around {temperature} and the humidity is {humidity}%
+
+  utter_ask_continue:
+    - text: Sorry, I don't quite understand. Do you want to continue?
+
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hey! How are you?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
 
 session_config:
   session_expiration_time: 60
