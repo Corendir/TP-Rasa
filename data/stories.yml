@@ -5,7 +5,7 @@ stories:
     steps:
       - intent: greet
       - action: utter_greet
-      - intent: weather
+      - intent: ask_weather
       - action: weather_form
       - active_loop: weather_form
       - intent: chitchat
@@ -18,7 +18,7 @@ stories:
     steps:
       - intent: greet
       - action: utter_greet
-      - intent: weather
+      - intent: ask_weather
       - action: weather_form
       - active_loop: weather_form
       - intent: chitchat
@@ -32,7 +32,7 @@ stories:
     steps:
       - intent: greet
       - action: utter_greet
-      - intent: weather
+      - intent: ask_weather
       - action: weather_form
       - active_loop: weather_form
       - active_loop: null

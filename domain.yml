@@ -1,4 +1,19 @@
 version: "3.0"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+  - ask_weather
+  - give_location
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - chitchat
 
 entities:
   - location
@@ -29,23 +44,6 @@ slots:
 #  weather_form:
 #    required_slots:
 #      - location
-
-forms:
-  weather_form:
-    location:
-      - type: "from_text"
-
-intents:
-  - ask_weather
-  - give_location
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - chitchat
 
 responses:
   #utter_ask_weather_form_location:
@@ -79,6 +77,8 @@ responses:
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
 
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+forms:
+  weather_form:
+    required_slots:
+      - location
+      #- type: from_text
